@@ -4,9 +4,214 @@ Theme Name: Trve Faith
 Description: Tema para el proyecto Beta de ID3 ESAT.
 Author: Mar Alarcón Arbona
 Author URI: notengo
-Version: 1.0
+Version: 2
 Text Domain: beta
 */
-body {
-  background-color: pink;
+
+:root {
+    /* Color palette */
+    --dark: #111;
+    --light: #f5f5f5;
+    --yellow: #ffd101;
+
+    /* Border */
+    --default-border: 2px solid #111;
 }
+
+/* UNIVERSAL */
+    /* Delete woocommerce margins */
+        * {
+            margin: 0px !important;
+        }
+    /* Add border style */
+        main {
+            border: var(--default-border);
+        }
+
+
+    /* Theme.json makes all links hover color to white so we add this here*/
+        a:hover {
+            background-color: var(--dark);
+        }
+
+
+/* HOME */
+    /* Marquee (added w/plugin) */
+        .marquee-inner {
+            border-right: var(--default-border);
+            border-left: var(--default-border);
+        }
+    .hero__img {
+        border: var(--default-border);
+    }
+
+    .home__colection-cover {
+        height: 50%;
+    }
+
+    .wc-block-grid__product {
+        border: var(--default-border);
+    }
+
+/* COLLECTIONS */
+
+    .wc-block-grid__product-title {
+        display: flex;
+        text-align: center;
+        justify-content: center;
+        border-top: var(--default-border);
+        
+    }
+    .collections-page__cover {
+        border: var(--default-border);
+    }
+
+    /*  Single Pages */
+    .wp-block-post-title {
+        border: var(--default-border);
+    }
+
+/* WOOCOMMERCE */
+
+    /*Product Preview*/
+        .wc-block-grid__product-image{
+            transition: transform .2s
+        }
+
+            .wc-block-grid__product-image:hover {
+                transform: scale(1.1);
+                animation:  .5s fade-out ease-in;
+            }
+
+        .wc-block-grid__product-title {
+            color: var(--dark);
+            /* animation-name: highlight;
+            animation-duration: 4s; */
+        }
+        .wc-block-grid__product-link:hover .wc-block-grid__product-title {
+                color: var(--light);
+                background-color: var(--dark);
+            }
+
+            /* Discarded Animation */
+                /* .wc-block-grid__product-title::after {
+                background-color: black;
+                content: '';
+                position: absolute;
+                left: 0;
+                bottom: 0;
+                height: auto;
+                width: 0;
+                z-index: -1;
+                transition: 0.2s width ease-in-out;
+                }
+                .wc-block-grid__product-title:hover::after{
+                    width: 100%;
+                    height: 30px;
+                } */
+
+                /* .wc-block-grid__product-link:hover + .wc-block-grid__product-title {
+                    color: white;
+                    background-color: black;
+                } */
+
+
+
+    /* Breadcrum */
+    .woocommerce-breadcrumb {
+        cursor: pointer;
+        border: var(--default-border);
+    }
+
+    .woocommerce-breadcrumb a:hover{
+        text-decoration: underline;
+        background-color: transparent;
+    }
+
+    /* Woocommerce product view page*/
+        .woocommerce div.product div.summary {
+            border: var(--default-border);
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+        }
+        .product_title  {
+            margin: 0;  
+            border: var(--default-border);
+            text-align: center;
+            flex: 1;
+        }
+        .price {
+            margin: 0;
+            width: auto;
+            color: var(--dark);
+            border: var(--default-border);
+            flex: 1;
+        }
+
+        .woocommerce div.product div.summary>* {
+            margin: 0px;
+        }
+        /* Span price tag */
+        .woocommerce div.product p.price, .woocommerce div.product span.price {
+            color: var(--dark);
+            text-align: center;
+        }
+        .woocommerce ul.products li.product .price {
+            color: var(--dark);
+        }
+        .woocommerce-product-details__short-description {
+            text-align: center;
+            border: var(--default-border);
+        }
+
+        /* Add to cart button */
+        [name="add-to-cart"] {
+            color: var(--light);
+            background-color: var(--dark);
+            width: 100%;
+        }
+            [name="add-to-cart"]:hover {
+                color: var(--dark);
+                background-color: var(--light);
+            }
+        /* !fix: input type number */
+        .quantity input{
+            width: 100%;
+        }
+      
+    /* Related products fix */
+        .woocommerce-loop-product__title {
+            text-align: center;
+            color: var(--dark);
+            border: var(--default-border);
+        }
+            .woocommerce-loop-product__title:hover {
+                color: var(--light);
+                background-color: var(--dark);
+            }
+
+        /* Don't show category and tags on product view page */
+        .product_meta {
+            display: none;
+        }
+        /* Don't show Woocommerce tabs*/    
+        .woocommerce-tabs{
+            display: none;
+        }
+
+
+/* CUSTOM RULES */
+    /* mediaqueries for different mobile and desktop top bar menus (!not working: fix ) */
+
+    /* @media (min-width: 782px) {
+        .wp-block--navigation .nav-primary--mobile {
+            display: none;
+        }
+    }
+
+    @media (max-width: 783px) {
+        .wp-block--navigation .nav-primary--desktop {
+            display: none;
+        }
+    } */
